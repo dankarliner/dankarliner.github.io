@@ -29,10 +29,10 @@ canvas { display: block; }
   <input type="range" id="north-rate" min="0" max="60" value="15">
   <label class="slider-label">קצב הגעה למטה (מכוניות/דקה): <span id="south-rate-value">15</span></label>
   <input type="range" id="south-rate" min="0" max="60" value="15">
-  <label class="slider-label">קצב הגעה ימינה (מכוניות/דקה): <span id="east-rate-value">15</span></label>
-  <input type="range" id="east-rate" min="0" max="60" value="15">
-  <label class="slider-label">קצב הגעה שמאלה (מכוניות/דקה): <span id="west-rate-value">15</span></label>
-  <input type="range" id="west-rate" min="0" max="60" value="15">
+  <label class="slider-label">קצב הגעה ימינה (מכוניות/דקה): <span id="east-rate-value">60</span></label>
+  <input type="range" id="east-rate" min="0" max="60" value="60">
+  <label class="slider-label">קצב הגעה שמאלה (מכוניות/דקה): <span id="west-rate-value">60</span></label>
+  <input type="range" id="west-rate" min="0" max="60" value="60">
   <label class="slider-label">זמן ירוק למעלה-למטה (שניות): <span id="ns-green-time-value">10</span></label>
   <input type="range" id="ns-green-time" min="0" max="30" value="10">
   <label class="slider-label">זמן ירוק ימינה-שמאלה (שניות): <span id="ew-green-time-value">10</span></label>
@@ -276,12 +276,12 @@ function drawTrafficLights() {
     // North-south lights
     drawTrafficLightVertical(
         canvas.width / 2 - roadWidth / 2 - sidewalkOffset,
-        canvas.height / 2 - intersectionSize / 2 - offset,
+        canvas.height / 2 + intersectionSize / 2 + offset, // Moved down
         lightPhase === 'ns-green'
     );
     drawTrafficLightVertical(
         canvas.width / 2 + roadWidth / 2 + sidewalkOffset,
-        canvas.height / 2 + intersectionSize / 2 + offset,
+        canvas.height / 2 - intersectionSize / 2 - offset, // Moved up
         lightPhase === 'ns-green'
     );
 
