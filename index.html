@@ -73,8 +73,6 @@ let lightPhase = 'ns-green'; // Initial traffic light phase
 // Car arrival rates (cars per minute)
 let northArrivalRate = 15;
 let southArrivalRate = 15;
-let eastArrivalRate = 15;
-let westArrivalRate = 15;
 let eastArrivalRate = 60;
 let westArrivalRate = 60;
 
@@ -176,12 +174,12 @@ function drawRoads() {
     intersectionSize,
     intersectionSize
   );
-
+  
   // Center lines
   ctx.strokeStyle = 'yellow';
   ctx.setLineDash([10, 10]);
   ctx.lineWidth = 2;
-
+  
   // North-south center line
   ctx.beginPath();
   ctx.moveTo(canvas.width / 2, 0);
@@ -380,7 +378,7 @@ function canCarMove(car, index) {
 
 function updateCar(car, index) {
     const moving = canCarMove(car, index);
-
+    
     if(moving) {
         car.x += car.dx;
         car.y += car.dy;
